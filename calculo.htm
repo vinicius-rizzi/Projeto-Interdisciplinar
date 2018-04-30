@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="UTF-8">
+	<head>
+		<link rel="stylesheet" href="input.css">
+		<title>Calculo Nota</title>
+
+		<script>
+
+			function media () {
+				var nome = document.getElementById("nome").value;
+				var a2 = (document.getElementById("a2"));
+				var a1 = (document.getElementById("a1"));
+				var valora2 = a2.value.replace(",",".");
+				var valora1 = a1.value.replace(",",".");
+				var afinal = document.getElementById("AF");
+
+					if( !isNaN(parseFloat(valora2)) == true)  {
+						if( !isNaN(parseFloat(valora1)) == true) {
+							if(valora2 <= 5 && valora2 >= 0) {
+								if(valora1 <= 5 && valora1 >= 0){
+									if(afinal != null){
+										var valorAF = afinal.value.replace(",",".");
+										if( !isNaN(parseFloat(valorAF)) == true){
+											if(valorAF <= 5 && valorAF >= 0){
+												var maiorNota = valora2 > valora1? valora2:valora1;
+												var notaMedia = (parseFloat(maiorNota) + parseFloat(valorAF));
+												if(notaMedia >= 6) {
+													document.getElementById("caixa").style.display = "block";
+													document.getElementById("texto1").innerHTML="MÉDIA = " + notaMedia;
+													document.getElementById("texto2").innerHTML="Parabéns " + nome + ", você foi APROVADO(A) !!!";
+
+												} else {
+													document.getElementById("caixa").style.display = "block";
+													document.getElementById("texto1").innerHTML="MÉDIA = " + notaMedia;
+													document.getElementById("texto2").innerHTML=nome + " você foi REPROVADO(A) !";
+												}
+
+											} else {
+												alert("Informe um número valido na AF! (Ex.: 0 a 5)");
+									    		document.getElementById ("AF").value = "";
+												document.getElementById ("AF").focus();
+											}
+										} else {
+											alert("Informe apenas números na AF");
+								    		document.getElementById ("AF").value = "";
+								    		document.getElementById ("AF").focus();
+								    	}
+
+									} else {
+										var notaMedia = (parseFloat(valora2) + parseFloat(valora1));
+										if(notaMedia >= 6) {
+											document.getElementById("caixa").style.display = "block";
+											document.getElementById("texto1").innerHTML="MÉDIA = " + notaMedia;
+											document.getElementById("texto2").innerHTML="Parabéns " + nome + ", você foi APROVADO(A) !!!";
+
+										} else {
+											document.getElementById("caixaAF").innerHTML='<h3>Nota AF:</h3><input type="text" class="notas" id="AF"/><br><br>';
+											document.getElementById("caixa").style.display = "none";
+											document.getElementById("texto1").innerHTML="";
+											document.getElementById("texto2").innerHTML="";
+											document.getElementById("notaPrincipal").style.display = "none";
+											}
+									}
+
+								} else {
+									alert("Informe um número valido na A1! (Ex.: 0 a 5)");
+						    		document.getElementById ("a1").value = "";
+						    		document.getElementById ("a1").focus();
+								}
+							} else {
+								alert("Informe um número valido na A2! (Ex.: 0 a 5)");
+					    		document.getElementById ("a2").value = "";
+								document.getElementById ("a2").focus();
+							}
+						} else {
+							alert("Informe apenas números na A1");
+				    		document.getElementById ("a1").value = "";
+				    		document.getElementById ("a1").focus();
+						}
+
+					} else {
+						alert("Informe apenas números na A2");
+			    		document.getElementById ("a2").value = "";
+			    		document.getElementById ("a2").focus();
+					}
+			}
+
+		</script>
+
+	</head>
+	<body>
+				<b>
+					<center>
+
+						<h1>Calcule sua Média</h1>
+						<br>
+						<p>Para calcular a sua nota média informe seu nome e as notas das suas provas nos campos abaixo.</p>
+						<br>
+						<h3>Informe seu nome:</h3>
+						<input type="text" id="nome"/>
+
+						<div id="notaPrincipal">
+							<h3>Nota A2:</h3>
+
+							<input type="text" class="notas" id="a2"/>
+
+							<br><br>
+
+							<h3>Nota A1:</h3>
+
+							<input type="text" class="notas" id="a1"/>
+						</div>
+
+						<br><br>
+
+						<div id="caixaAF">
+						</div>
+
+						<input  type="button" value="Calcular Média" onclick="media();">
+
+						<br><br><br>
+
+							<div id="caixa" style="display:none">
+								<h4 id="texto1"></h4>
+
+								<h4 id="texto2"></h4>
+							</div>
+
+					</center>
+				</b>
+	</body>
+</html>

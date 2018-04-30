@@ -1,0 +1,63 @@
+h1{
+	font-family: Open Sans;
+	font-size: 24pt;
+	color: #e5d820; /*#0dd846;*/
+	-webkit-text-stroke-width: 1.5px;
+	-webkit-text-stroke-color: black;
+}
+
+body{
+	font-family: Open Sans;
+	color: white;
+	background-color: #394577;
+}
+
+input[type="text"], input[type="number"]{
+	text-align: center;
+}
+
+p{
+	font-size: 15pt;
+}
+
+#nome{
+	background-color: #d9d9e2;
+	border-color: #47474f;
+	width: 250px;
+	height: 25px;
+	color: black;
+}
+
+.notas{
+	background-color: #d9d9e2;
+	border-color: #47474f;
+	width: 80px;
+	height: 25px;
+	color: black;
+}
+
+#caixa{
+	color: black;
+	width: 400px;
+	height: 100px;
+	border: black;
+	background: #ffe;
+	border-radius: 10px;
+	padding-top: 1px;
+}
+
+input[type="button"]{
+	font-family: Open Sans;
+	background-color: #229b44;
+	border-color: black;
+	width: 150px;
+	height: 37px;
+	color: white;
+	border-radius: 5px 5px;
+	font-size: 14pt;
+	cursor: pointer;
+}
+
+input[type="button"]:hover{
+	background-color: #228e40;
+}
